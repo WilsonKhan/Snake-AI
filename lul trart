@@ -1,0 +1,15 @@
+word = input("What word is to be beb davivadified? ") # If anyone says my code is bad i will cry and burn your home down (Looking at you joj and kelly)
+word_list = ([*word])
+output_word = []
+vowels_list = ['a', 'e', 'i', 'o', 'u']
+for item in word_list:
+    if item not in vowels_list:
+        output_word.append(item)
+    if item in vowels_list:
+        output_word.append(item)
+        break
+reversed_list = output_word[::-1] #Im about to do some reverse list bullshit ignore pls im dumb
+del reversed_list[0]
+final_word = output_word + reversed_list
+collapsed_string = ' '.join(final_word)
+print(collapsed_string)
