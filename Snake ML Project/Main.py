@@ -1,6 +1,7 @@
 import pygame
 import sys
 from game_functions import GameState
+from Pathfinding import createStateArray, createStartEndNodes, astar
 
 def main():
     game_state = GameState(num_tiles_x=31, num_tiles_y=31, grid_size=25)
@@ -23,6 +24,9 @@ def main():
         Apple_Eaten = False
         game_state.Draw_Grid()
         game_state.print_snake(score)
+        createStateArray(game_state)
+        createStartEndNodes(game_state.positions[0], game_state.current_apple_x, game_state.current_apple_y)
+        # Create a function that highlights the current path
 
         # Movement vector input handling
         keys = pygame.key.get_pressed()
