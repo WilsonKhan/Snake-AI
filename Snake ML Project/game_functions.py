@@ -21,7 +21,7 @@ class GameState:
         self.current_apple_x = self.grid_size * random.randint(0, self.num_tiles_x - 1) + grid_offset 
         self.current_apple_y = self.grid_size * random.randint(0, self.num_tiles_y - 1) + grid_offset
 
-        self.positions = [[10, 10]] # Sets the initial position
+        self.positions = [[2, 2]] # Sets the initial position
 
     def generate_rainbow_colors(self, num_colors):
         # Generate a list of rainbow colors

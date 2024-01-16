@@ -4,7 +4,7 @@ from game_functions import GameState
 from Pathfinding import createStateArray, createStartEndNodes, astar, findDirection
 
 def main():
-    game_state = GameState(num_tiles_x=20, num_tiles_y=20, grid_size=25)
+    game_state = GameState(num_tiles_x=20, num_tiles_y=20, grid_size=30)
 
     Apple_Eaten = False
     score = 0
@@ -30,22 +30,9 @@ def main():
 
         start_node, end_node = createStartEndNodes(game_state.positions[0], game_state.current_apple_x, game_state.current_apple_y, game_state.grid_size)
         astar_path = astar(start_node, end_node, game_state.width, game_state.height, game_state.grid_size, snake_body_for_astar)
-        print(snake_body_for_astar)
         print(astar_path)
         game_state.draw_astar_path(astar_path, game_state.grid_size)
         direction = findDirection(astar_path, game_state.positions[0])
-
-
-        # Movement vector input handling
-        keys = pygame.key.get_pressed()
-        if keys[pygame.K_LEFT] and direction != [1, 0]:
-            direction = [-1, 0]
-        elif keys[pygame.K_RIGHT] and direction != [-1, 0]:
-            direction = [1, 0]
-        elif keys[pygame.K_UP] and direction != [0, 1]:
-            direction = [0, -1]
-        elif keys[pygame.K_DOWN] and direction != [0, -1]:
-            direction = [0, 1]
 
         # Check every frame for whether the apple has been eaten
         if game_state.positions[0][0] * game_state.grid_size + 3 == game_state.current_apple_x and game_state.positions[0][1] * game_state.grid_size + 3 == game_state.current_apple_y:
@@ -72,7 +59,7 @@ def main():
 
 
         pygame.display.flip()
-        pygame.time.delay(2)
+        pygame.time.delay(50)
 
     pygame.quit()
     sys.exit()
