@@ -1,2 +1,2 @@
-# Snake-AI
-Snake ML project using Deep Q Learning.
+# Snake-A*-Algorithm-Implementation
+Implementation of an A* algorithm in a game of snake.
